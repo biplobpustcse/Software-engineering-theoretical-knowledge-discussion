@@ -1,118 +1,162 @@
 # Software engineering theoretical knowledge discussion
 ## MongoDB
 
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>1. What is MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB is a NoSQL database that stores data in a flexible, JSON-like format called BSON. It is schema-less, meaning the data structure can evolve without the need for a predefined schema. It&rsquo;s designed for scalability and flexibility, making it ideal for applications that handle large volumes of unstructured data.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>2. How does MongoDB differ from traditional relational databases (RDBMS)?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Schema:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB is schema-less, while RDBMS databases have a fixed schema.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Data Format:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB stores data as documents (BSON), while RDBMS stores data in tables with rows and columns.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Relationships:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;RDBMS supports joins to represent relationships between entities; MongoDB uses embedded documents or references.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Scalability:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB is built for horizontal scaling (sharding), whereas RDBMS typically scales vertically.</span></li>
+<ol>
+<li><strong> What is MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong>&nbsp;MongoDB is a cross-platform, document-oriented, NoSQL database. It stores data in a type of JSON format called BSON. A record in MongoDB is a document, which is a data structure composed of key value pairs similar to the structure of JSON objects. It&rsquo;s designed for scalability and flexibility, making it ideal for applications that handle large volumes of unstructured data.</p>
+<p>MongoDB is a document database and can be <strong>installed locally or hosted in the cloud.</strong></p>
+<h2><strong>SQL vs Document Databases</strong></h2>
+<p>SQL databases are considered relational databases. They store related data in separate tables. When data is needed, it is queried from multiple tables to join the data back together.</p>
+<p>MongoDB is a document database which is often referred to as a non-relational database. This does not mean that relational data cannot be stored in document databases. It means that relational data is stored differently. A better way to refer to it is as a non-tabular database.</p>
+<ol start="2">
+<li><strong> How does MongoDB differ from traditional relational databases (RDBMS)?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Schema:</strong> MongoDB is schema-less, while RDBMS databases have a fixed schema.</li>
+<li><strong>Data Format:</strong> MongoDB stores data as documents (BSON), while RDBMS stores data in tables with rows and columns.</li>
+<li><strong>Relationships:</strong> RDBMS supports joins to represent relationships between entities; MongoDB uses embedded documents or references.</li>
+<li><strong>Scalability:</strong> MongoDB is built for horizontal scaling (sharding), whereas RDBMS typically scales vertically.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>3. What is a replica set in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;A replica set is a group of MongoDB instances that maintain the same dataset, providing redundancy and high availability. It consists of:</span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Primary:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Receives all write operations.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Secondary:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Replicates data from the primary and can become the new primary if the current primary fails.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Arbiter:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Does not store data but helps in the election of a new primary if necessary.</span></li>
+<ol start="3">
+<li><strong> What is a replica set in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> A replica set is a group of MongoDB instances that maintain the same dataset, providing redundancy and high availability. It consists of:</p>
+<ul>
+<li><strong>Primary:</strong> Receives all write operations.</li>
+<li><strong>Secondary:</strong> Replicates data from the primary and can become the new primary if the current primary fails.</li>
+<li><strong>Arbiter:</strong> Does not store data but helps in the election of a new primary if necessary.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>4. Explain Sharding in MongoDB.</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Sharding is MongoDB&apos;s approach to horizontal scaling, allowing it to distribute data across multiple servers or clusters. Each shard holds a portion of the data. A sharded cluster consists of:</span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Shards:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Store data.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Config Servers:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Store metadata and configuration settings.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Mongos:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Acts as a query router between the application and the shards.</span></li>
+<ol start="4">
+<li><strong> Explain Sharding in MongoDB.</strong></li>
+</ol>
+<p><strong>Answer:</strong> Sharding is MongoDB's approach to horizontal scaling, allowing it to distribute data across multiple servers or clusters. Each shard holds a portion of the data. A sharded cluster consists of:</p>
+<ul>
+<li><strong>Shards:</strong> Store data.</li>
+<li><strong>Config Servers:</strong> Store metadata and configuration settings.</li>
+<li><strong>Mongos:</strong> Acts as a query router between the application and the shards.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>5. What are the different types of indexes in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Single Field Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Indexes on a single field.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Compound Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Indexes on multiple fields.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Multikey Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Used for indexing arrays.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Text Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Allows text search within string content.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Geospatial Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Used for location-based queries.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Hashed Index:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Used for sharded collections, supporting hash-based sharding.</span></li>
+<ol start="5">
+<li><strong> What are the different types of indexes in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Single Field Index:</strong> Indexes on a single field.</li>
+<li><strong>Compound Index:</strong> Indexes on multiple fields.</li>
+<li><strong>Multikey Index:</strong> Used for indexing arrays.</li>
+<li><strong>Text Index:</strong> Allows text search within string content.</li>
+<li><strong>Geospatial Index:</strong> Used for location-based queries.</li>
+<li><strong>Hashed Index:</strong> Used for sharded collections, supporting hash-based sharding.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>6. How does MongoDB ensure data consistency?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB provides tunable consistency levels:</span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Write Concerns:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Allows control over the acknowledgment of writes. E.g.,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>w=1</span><span style='font-size:16px;font-family:     "Times New Roman",serif;'>&nbsp;ensures the write reaches the primary,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>w=majority</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;ensures it reaches the majority of nodes.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Read Concerns:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Control the consistency of data when reading from a replica set. Options include&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>local</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:     "Courier New";'>majority</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>, and&nbsp;</span><span style='font-size:13px;font-family:     "Courier New";'>linearizable</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>.</span></li>
+<ol start="6">
+<li><strong> How does MongoDB ensure data consistency?</strong></li>
+</ol>
+<p><strong>Answer:</strong> MongoDB provides tunable consistency levels:</p>
+<ul>
+<li><strong>Write Concerns:</strong> Allows control over the acknowledgment of writes. E.g., w=1 ensures the write reaches the primary, w=majority ensures it reaches the majority of nodes.</li>
+<li><strong>Read Concerns:</strong> Control the consistency of data when reading from a replica set. Options include local, majority, and linearizable.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>7. What is aggregation in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Aggregation is a process in MongoDB that processes data records and returns computed results. It&rsquo;s similar to&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>GROUP BY</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;in SQL but more powerful. MongoDB supports various stages in its aggregation pipeline such as&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$match</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$group</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$project</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$sort</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$lookup</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>, and&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$unwind</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>8. What is the difference between&nbsp;</span></strong><strong><span style='font-size:13px;font-family:"Courier New";'>find()</span></strong><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>&nbsp;and&nbsp;</span></strong><strong><span style='font-size:13px;font-family:"Courier New";'>aggregate()</span></strong><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>&nbsp;in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:13px;font-family:"Courier New";'>find()</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;is used for simple querying of documents that match specific criteria.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:13px;font-family:"Courier New";'>aggregate()</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;is used for more complex operations, such as data transformation and analysis, using stages in a pipeline.</span></li>
+<ol start="7">
+<li><strong> What is aggregation in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> Aggregation is a process in MongoDB that processes data records and returns computed results. It&rsquo;s similar to GROUP BY in SQL but more powerful. MongoDB supports various stages in its aggregation pipeline such as $match, $group, $project, $sort, $lookup, and $unwind.</p>
+<ol start="8">
+<li><strong> What is the difference between </strong><strong>find()</strong><strong> and </strong><strong>aggregate()</strong><strong> in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>find()</strong> is used for simple querying of documents that match specific criteria.</li>
+<li><strong>aggregate()</strong> is used for more complex operations, such as data transformation and analysis, using stages in a pipeline.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>9. What is MongoDB&rsquo;s transaction model, and how is it implemented?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB supports multi-document ACID transactions, ensuring atomicity, consistency, isolation, and durability across multiple documents and collections. Transactions can span across multiple shards. They are used with the&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>startTransaction()</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>,&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>commitTransaction()</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>, and&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>abortTransaction()</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;methods.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>10. Explain the purpose of&nbsp;</span></strong><strong><span style='font-size:13px;font-family:"Courier New";'>$lookup</span></strong><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>&nbsp;in MongoDB.</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;The&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>$lookup</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;stage in MongoDB&rsquo;s aggregation pipeline is used to perform a left outer join between two collections. This is akin to joining tables in SQL.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>11. How do you optimize MongoDB performance?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Indexing:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Proper use of indexes can greatly speed up queries.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sharding:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;For large-scale applications, using sharding helps distribute the load across multiple servers.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Avoid Unnecessary Writes:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Minimize the frequency of write operations and use bulk writes when possible.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Use Embedded Documents Carefully:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Although embedded documents can reduce the need for joins, they should be used only when it makes sense from a data modeling perspective.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Projection:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Only fetch the fields you need by using projections to limit the data returned by queries.</span></li>
+<ol start="9">
+<li><strong> What is MongoDB&rsquo;s transaction model, and how is it implemented?</strong></li>
+</ol>
+<p><strong>Answer:</strong> MongoDB supports multi-document ACID transactions, ensuring atomicity, consistency, isolation, and durability across multiple documents and collections. Transactions can span across multiple shards. They are used with the startTransaction(), commitTransaction(), and abortTransaction() methods.</p>
+<ol start="10">
+<li><strong> Explain the purpose of </strong><strong>$lookup</strong><strong> in MongoDB.</strong></li>
+</ol>
+<p><strong>Answer:</strong> The $lookup stage in MongoDB&rsquo;s aggregation pipeline is used to perform a left outer join between two collections. This is akin to joining tables in SQL.</p>
+<ol start="11">
+<li><strong> How do you optimize MongoDB performance?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Indexing:</strong> Proper use of indexes can greatly speed up queries.</li>
+<li><strong>Sharding:</strong> For large-scale applications, using sharding helps distribute the load across multiple servers.</li>
+<li><strong>Avoid Unnecessary Writes:</strong> Minimize the frequency of write operations and use bulk writes when possible.</li>
+<li><strong>Use Embedded Documents Carefully:</strong> Although embedded documents can reduce the need for joins, they should be used only when it makes sense from a data modeling perspective.</li>
+<li><strong>Projection:</strong> Only fetch the fields you need by using projections to limit the data returned by queries.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>12. What are capped collections in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Capped collections are fixed-size collections that maintain insertion order and automatically delete the oldest documents when the collection reaches its maximum size. These are useful for logging and caching scenarios.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>13. What is the WiredTiger storage engine in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;WiredTiger is the default storage engine for MongoDB, providing efficient compression, concurrency control, and support for document-level locking. It improves performance, especially for write-heavy workloads.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>14. How does MongoDB handle large data volumes?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB can handle large data volumes by:</span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sharding:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Distributing data across multiple servers.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Indexes:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Creating efficient indexes to reduce query times.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Capped Collections:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Managing collections with limited size.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Efficient Data Modeling:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Optimizing the structure of collections and documents.</span></li>
+<ol start="12">
+<li><strong> What are capped collections in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> Capped collections are fixed-size collections that maintain insertion order and automatically delete the oldest documents when the collection reaches its maximum size. These are useful for logging and caching scenarios.</p>
+<ol start="13">
+<li><strong> What is the WiredTiger storage engine in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> WiredTiger is the default storage engine for MongoDB, providing efficient compression, concurrency control, and support for document-level locking. It improves performance, especially for write-heavy workloads.</p>
+<ol start="14">
+<li><strong> How does MongoDB handle large data volumes?</strong></li>
+</ol>
+<p><strong>Answer:</strong> MongoDB can handle large data volumes by:</p>
+<ul>
+<li><strong>Sharding:</strong> Distributing data across multiple servers.</li>
+<li><strong>Indexes:</strong> Creating efficient indexes to reduce query times.</li>
+<li><strong>Capped Collections:</strong> Managing collections with limited size.</li>
+<li><strong>Efficient Data Modeling:</strong> Optimizing the structure of collections and documents.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>15. What are the benefits and drawbacks of using MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;<strong>Benefits:</strong></span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Flexible schema.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Scales horizontally via sharding.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Easy integration with cloud services.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Rich querying capabilities with an aggregation framework.</span></li>
+<ol start="15">
+<li><strong> What are the benefits and drawbacks of using MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> <strong>Benefits:</strong></p>
+<ul>
+<li>Flexible schema.</li>
+<li>Scales horizontally via sharding.</li>
+<li>Easy integration with cloud services.</li>
+<li>Rich querying capabilities with an aggregation framework.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Drawbacks:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Lacks strong ACID guarantees compared to traditional RDBMS (though multi-document transactions are supported).</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Less efficient for complex joins compared to relational databases.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Indexing strategy needs to be carefully planned for optimal performance.</span></li>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li>Lacks strong ACID guarantees compared to traditional RDBMS (though multi-document transactions are supported).</li>
+<li>Less efficient for complex joins compared to relational databases.</li>
+<li>Indexing strategy needs to be carefully planned for optimal performance.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>16. What is MongoDB Atlas?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB Atlas is a fully managed cloud database service that handles deployment, maintenance, and scalability. It allows developers to focus on building applications without worrying about managing infrastructure.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>17. How do you handle schema migrations in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Schema-less nature:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB doesn&rsquo;t have built-in schema migration tools like traditional RDBMS.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Migration Tools:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Tools like&nbsp;</span><span style='font-size:13px;font-family:"Courier New";'>mongomigrate</span><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;or custom scripts can be used to handle schema migrations.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Rolling Migrations:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Schema changes can be handled in a rolling manner by updating documents over time, allowing backward compatibility with older documents.</span></li>
+<ol start="16">
+<li><strong> What is MongoDB Atlas?</strong></li>
+</ol>
+<p><strong>Answer:</strong> MongoDB Atlas is a fully managed cloud database service that handles deployment, maintenance, and scalability. It allows developers to focus on building applications without worrying about managing infrastructure.</p>
+<ol start="17">
+<li><strong> How do you handle schema migrations in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Schema-less nature:</strong> MongoDB doesn&rsquo;t have built-in schema migration tools like traditional RDBMS.</li>
+<li><strong>Migration Tools:</strong> Tools like mongomigrate or custom scripts can be used to handle schema migrations.</li>
+<li><strong>Rolling Migrations:</strong> Schema changes can be handled in a rolling manner by updating documents over time, allowing backward compatibility with older documents.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>18. Explain GridFS in MongoDB.</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;GridFS is a MongoDB specification for storing and retrieving large files, such as images or videos, that exceed the BSON-document size limit of 16MB. GridFS splits the file into chunks and stores each chunk as a separate document.</span></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>19. How do you ensure high availability in MongoDB?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;High availability is ensured by:</span></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Replica Sets:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Using replica sets to replicate data across multiple servers. If the primary fails, one of the secondaries is automatically promoted to primary.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Automated Failover:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;MongoDB automatically handles failovers in the event of a node failure.</span></li>
+<ol start="18">
+<li><strong> Explain GridFS in MongoDB.</strong></li>
+</ol>
+<p><strong>Answer:</strong> GridFS is a MongoDB specification for storing and retrieving large files, such as images or videos, that exceed the BSON-document size limit of 16MB. GridFS splits the file into chunks and stores each chunk as a separate document.</p>
+<ol start="19">
+<li><strong> How do you ensure high availability in MongoDB?</strong></li>
+</ol>
+<p><strong>Answer:</strong> High availability is ensured by:</p>
+<ul>
+<li><strong>Replica Sets:</strong> Using replica sets to replicate data across multiple servers. If the primary fails, one of the secondaries is automatically promoted to primary.</li>
+<li><strong>Automated Failover:</strong> MongoDB automatically handles failovers in the event of a node failure.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:18px;font-family:"Times New Roman",serif;'>20. How would you scale MongoDB for write-heavy workloads?</span></strong></p>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Answer:</span></strong></p>
-<ul type="disc" style="margin-bottom:0in;">
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sharding:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Distribute the write load across multiple shards.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Write Concerns:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Optimize write concerns to balance between speed and data safety.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Bulk Writes:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Use bulk operations to improve write performance.</span></li>
-    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Schema Design:</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;Design your schema to minimize the number of writes and updates required.</span></li>
+<ol start="20">
+<li><strong> How would you scale MongoDB for write-heavy workloads?</strong></li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Sharding:</strong> Distribute the write load across multiple shards.</li>
+<li><strong>Write Concerns:</strong> Optimize write concerns to balance between speed and data safety.</li>
+<li><strong>Bulk Writes:</strong> Use bulk operations to improve write performance.</li>
+<li><strong>Schema Design:</strong> Design your schema to minimize the number of writes and updates required.</li>
 </ul>
-<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p>&nbsp;</p>
 
 
