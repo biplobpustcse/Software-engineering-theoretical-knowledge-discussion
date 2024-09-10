@@ -6,9 +6,6 @@
 </ol>
 <p><strong>Answer:</strong>&nbsp;MongoDB is a cross-platform, document-oriented, NoSQL database. It stores data in a type of JSON format called BSON. A record in MongoDB is a document, which is a data structure composed of key value pairs similar to the structure of JSON objects. It&rsquo;s designed for scalability and flexibility, making it ideal for applications that handle large volumes of unstructured data.</p>
 <p>MongoDB is a document database and can be <strong>installed locally or hosted in the cloud.</strong></p>
-<h2><strong>SQL vs Document Databases</strong></h2>
-<p>SQL databases are considered relational databases. They store related data in separate tables. When data is needed, it is queried from multiple tables to join the data back together.</p>
-<p>MongoDB is a document database which is often referred to as a non-relational database. This does not mean that relational data cannot be stored in document databases. It means that relational data is stored differently. A better way to refer to it is as a non-tabular database.</p>
 <ol start="2">
 <li><strong> How does MongoDB differ from traditional relational databases (RDBMS)?</strong></li>
 </ol>
