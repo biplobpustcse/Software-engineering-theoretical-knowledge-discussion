@@ -167,6 +167,9 @@
 <h3>&nbsp;</h3>
 <h3>1. <strong>What are the key components of Kubernetes architecture?</strong></h3>
 <p><strong>Answer:</strong> Kubernetes has a master-slave architecture, with the following core components:</p>
+
+![kubernetes](https://github.com/user-attachments/assets/cfa009c1-6dfd-47ef-b8e3-0844b0b46864)
+
 <ul>
 <li><strong>Master Node:</strong>
 <ul>
